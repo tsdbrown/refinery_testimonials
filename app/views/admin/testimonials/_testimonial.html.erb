@@ -1,0 +1,20 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(testimonial) -%>">
+  <span class='title'>
+    <span class='actions'>
+      <%= link_to refinery_icon_tag("eye.png"), '#',
+          :title => 'Toggle the display of this quote',
+          :style => 'display:none;',
+          :class => 'toggle_quote' %>
+      <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_testimonial_path(testimonial),
+           :title => 'Edit this testimonial' %>
+      <%= link_to refinery_icon_tag("delete.png"), admin_testimonial_path(testimonial),
+          :confirm => 'Are you sure you want to remove this testimonial forever?',
+          :class => "cancel", :method => :delete,
+          :title => 'Remove this testimonial forever' %>
+    </span>
+    
+    <%= [content_tag(:b, h(testimonial.name)), h(testimonial.job_title), h(testimonial.company)].reject(&:blank?).join(", ") %>
+    <span class="preview">&nbsp;</span>
+    <p style="display:none;"><%= h(testimonial.quote) %></p>
+  </span>
+</li>

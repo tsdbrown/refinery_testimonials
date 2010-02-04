@@ -1,0 +1,28 @@
+<% content_for :head, stylesheet_link_tag('testimonials') %>
+
+<div id='body_content' class='clearfix'>
+  <h1><%= page_title %></h1>
+
+  <div id='body_content_left' class='clearfix'>
+    <%= @page[:body]  %>
+
+    <%= will_paginate @testimonials %>
+
+    <div class="testimonials">
+      <% @testimonials.each do |testimonial| %>
+        <div class="testimonial">
+          <blockquote>
+            <p><%= testimonial.quote %></p>
+            <p><cite><%= citation_line(testimonial) %></cite></p>
+          </blockquote>
+        </div>
+      <% end %>
+    </div>
+
+    <%= will_paginate @testimonials %>
+  </div>
+
+  <div id='body_content_right' class='clearfix'>
+    <%= @page[:side_body]  %>
+  </div>
+</div>

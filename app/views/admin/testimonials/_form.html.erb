@@ -1,0 +1,35 @@
+<%= error_messages_for :testimonial -%>
+<% form_for [:admin, @testimonial] do |f| -%>
+  
+  <div class='field'>
+    <%= f.label :quote, "Quote <em>*</em>" -%>
+    <%= f.text_area :quote, :rows => 5, :cols => 140 -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :name, "Name <em>*</em>" -%>
+    <%= f.text_field :name -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :company -%>
+    <%= f.text_field :company -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :job_title -%>
+    <%= f.text_field :job_title -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :website -%>
+    <%= f.text_field :website -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :quoted_on -%>
+    <%= f.date_select :quoted_on, :order => [:day, :month, :year] -%>
+  </div>
+  
+  <%= render :partial => "/shared/admin/form_actions", :locals => {:f => f, :continue_editing => false} %>
+<% end -%>
