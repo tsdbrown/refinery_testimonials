@@ -1,0 +1,18 @@
+.testimonials {border-top:1px dashed #ddd; margin:20px 0;}
+
+.testimonial {border-bottom:1px dashed #ddd;}
+cite {font-style:normal;}
+blockquote p {padding: 0 36px;}
+
+blockquote p:first-child {
+  background: transparent url(../images/open_quote.gif) no-repeat scroll 0 0;
+  padding-top:36px;
+}
+
+blockquote {
+  background: transparent url(../images/close_quote.gif) no-repeat scroll right bottom;
+  margin:0 0 14px;
+}
+
+
+
