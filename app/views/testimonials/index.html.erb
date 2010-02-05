@@ -1,28 +1,26 @@
 <% content_for :head, stylesheet_link_tag('testimonials') %>
 
-<div id='body_content' class='clearfix'>
-  <h1><%= page_title %></h1>
+<% content_for :body_content_left do %>
+  <%= @page[:body]  %>
 
-  <div id='body_content_left' class='clearfix'>
-    <%= @page[:body]  %>
+  <%= will_paginate @testimonials %>
 
-    <%= will_paginate @testimonials %>
-
-    <div class="testimonials">
-      <% @testimonials.each do |testimonial| %>
-        <div class="testimonial">
-          <blockquote>
-            <p><%= testimonial.quote %></p>
-            <p><cite><%= citation_line(testimonial) %></cite></p>
-          </blockquote>
-        </div>
-      <% end %>
-    </div>
-
-    <%= will_paginate @testimonials %>
+  <div class="testimonials">
+    <% @testimonials.each do |testimonial| %>
+      <div class="testimonial">
+        <blockquote>
+          <p><%= testimonial.quote %></p>
+          <p><cite><%= citation_line(testimonial) %></cite></p>
+        </blockquote>
+      </div>
+    <% end %>
   </div>
 
-  <div id='body_content_right' class='clearfix'>
-    <%= @page[:side_body]  %>
-  </div>
-</div>
+  <%= will_paginate @testimonials %>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <%= @page[:side_body]  %>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>
