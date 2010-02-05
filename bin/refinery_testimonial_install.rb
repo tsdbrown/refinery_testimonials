@@ -10,12 +10,12 @@ unless RAILS_ROOT.nil? or RAILS_ROOT.length == 0
 
   copies = [
     {:from => ["db", "migrate"],:to => ["db", "migrate"],:filename => "20100203164921_create_testimonials.rb"},
-    {:from => ["public", "stylesheets"],:to => ["public", "stylesheets"],:filename => "testimonials"},
+    {:from => ["public", "stylesheets"],:to => ["public", "stylesheets"],:filename => "testimonials.css"},
     {:from => ["public", "images"],:to => ["public", "images"],:filename => "close_quote.gif"},
     {:from => ["public", "images"],:to => ["public", "images"],:filename => "open_quote.gif"}
   ]
 	copies.each do |copy|
-    copy_from = File.join(REFINEERY_TESTIMONIALS_ROOT_ROOT, copy[:from], copy[:filename])
+    copy_from = File.join(REFINEERY_TESTIMONIALS_ROOT, copy[:from], copy[:filename])
 	  copy_to = File.join(RAILS_ROOT, copy[:to], copy[:filename])
     unless File.exists?(copy_to)
 	    FileUtils::copy_file copy_from, copy_to
