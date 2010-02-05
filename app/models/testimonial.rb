@@ -10,4 +10,7 @@ class Testimonial < ActiveRecord::Base
     "Quote by #{self.name}"
   end
 
+  def self.random
+    self.find :first, :offset => ( Model.count * rand ).to_i
+  end
 end

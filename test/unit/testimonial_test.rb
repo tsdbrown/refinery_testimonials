@@ -1,10 +1,12 @@
 require 'test_helper'
+require 'testimonial'
 
 class TestimonialTest < ActiveSupport::TestCase
   
   context "The Testimonial class itself" do
     should_validate_presence_of :name, :quote
     should_have_instance_methods :flash_name
+    should_have_class_methods :random
   end
 
   context "A valid instance of a Testimonial" do

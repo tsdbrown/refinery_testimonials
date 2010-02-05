@@ -1,2 +1,41 @@
 Testimonials plugin for RefineryCMS
 http://github.com/resolve/Refinery
+
+This is our first attempt at giving something back to the open source community. The guys at resolve
+have done a great job with refinerycms and made the project easily extendable with engines. We hope
+others find this plugin useful and would love to here any feedback or advice on improving it : )
+
+
+Plugin Installation
+===================
+script/plugin install git://github.com/tsdbrown/refinery_testimonials.git
+rake refinery_testimonials:install
+rake db:migrate
+
+Following the refinery conventions the standard install gives you a new tab in the
+admin interface to manage your testimonials. There is also a new page added under
+pages that is used to display your list in the front end.
+
+
+Gem Installation
+================
+Coming soon...
+
+
+Show a Random Testimonial On Any Page
+=====================================
+If like us you wish to show a random testimonial on pages you need to follow these
+two basic steps:
+
+1. Add <%= display_page_testimonial_if_setup %> into your layout where you would like to display them
+   -> We've put ours in the sidebar under shared/_content_page.html.erb
+
+2. Change the 'show_testimonials_on_pages' setting in the backend, there are three options:
+   -> all  # Show one on every page (except testimonials)
+   -> none # Turn off the random testimonial on all pages
+   -> comma seperated list of page titles you want them on, i.e: news, contact us, home
+
+
+If you want to run the tests add the following to environments/test.rb
+config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+config.gem "mocha"

@@ -6,20 +6,14 @@
   <%= will_paginate @testimonials %>
 
   <div class="testimonials">
-    <% @testimonials.each do |testimonial| %>
-      <div class="testimonial">
-        <blockquote>
-          <p><%= testimonial.quote %></p>
-          <p><cite><%= citation_line(testimonial) %></cite></p>
-        </blockquote>
-      </div>
-    <% end %>
+    <%= render :partial => 'testimonial', :collection => @testimonials %>
   </div>
 
   <%= will_paginate @testimonials %>
 <% end %>
 
 <% content_for :body_content_right do %>
+  <%= y @random_testimonial %> hi
   <%= @page[:side_body]  %>
 <% end %>
 
