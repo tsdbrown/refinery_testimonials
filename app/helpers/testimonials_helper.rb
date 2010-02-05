@@ -7,8 +7,9 @@ module TestimonialsHelper
   def citation_line(t)
     [
       content_tag(:b, h(t.name)),
-      [h(t.job_title), website_or_company(t)].reject(&:blank?).join(", ")
-    ].reject(&:blank?).join(": ")
+      h(t.job_title),
+      website_or_company(t)
+    ].reject(&:blank?).join(", ").sub(/,\s/, ": ")
   end
 
   def website_or_company(t)
@@ -18,5 +19,5 @@ module TestimonialsHelper
       content_tag(:a, h(t.company.blank? ? t.website : t.company), :href => h(t.website))
     end
   end
-
+  
 end
