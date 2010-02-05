@@ -1,4 +1,4 @@
-namespace :refinery_testimonial do
+namespace :refinery_testimonials do
 	desc "Install extra files from the refinery testimonial plugin"
 
 	task :install do
