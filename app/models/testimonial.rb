@@ -11,6 +11,6 @@ class Testimonial < ActiveRecord::Base
   end
 
   def self.random
-    self.find :first, :offset => ( Model.count * rand ).to_i
+    self.find :first, :offset => ( Testimonial.count * rand ).to_i
   end
 end
