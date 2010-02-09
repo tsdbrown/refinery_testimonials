@@ -6,8 +6,8 @@ class Page < ActiveRecord::Base
   def show_a_testimonial?
     return false if self.link_url == '/testimonials'
     show_on_pages = RefinerySetting.find_or_set(:show_testimonials_on_pages, 'none')
-    show_on_pages =~ /all/i || show_on_pages.split(',').map {|t| t.strip.downcase}.include?(self.title.strip.downcase)
+    show_on_pages =~ /all/i || show_on_pages.split(',').map(&:downcase).include?(self.title.strip.downcase)
   end
 end
 
-ActionView::Base.send :include, TestimonialsHelper;
+ActionView::Base.send :include, TestimonialsHelper
