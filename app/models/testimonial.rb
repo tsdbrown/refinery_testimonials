@@ -1,7 +1,7 @@
 class Testimonial < ActiveRecord::Base
 
   acts_as_indexed :fields => [:quote, :name, :company, :job_title, :website],
-          :index_file => Rails.root.join(%w(tmp index))
+                  :index_file => [Rails.root.to_s,"tmp","index"]
 
   validates_presence_of :quote
   validates_presence_of :name
