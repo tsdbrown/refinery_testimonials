@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'fileutils'
-REFINEERY_TESTIMONIALS_ROOT = File.expand_path(File.dirname(__FILE__) << "/..")
+REFINERY_TESTIMONIALS_ROOT = File.expand_path(File.dirname(__FILE__) << "/..")
 RAILS_ROOT = ARGV.first unless defined? RAILS_ROOT
 unless RAILS_ROOT.nil? or RAILS_ROOT.length == 0
   dirs = [['db', 'migrate'], ['public', 'stylesheets'], ['public', 'javascripts']]
@@ -15,7 +15,7 @@ unless RAILS_ROOT.nil? or RAILS_ROOT.length == 0
     {:from => ["public", "images"],:to => ["public", "images"],:filename => "open_quote.gif"}
   ]
 	copies.each do |copy|
-    copy_from = File.join(REFINEERY_TESTIMONIALS_ROOT, copy[:from], copy[:filename])
+    copy_from = File.join(REFINERY_TESTIMONIALS_ROOT, copy[:from], copy[:filename])
 	  copy_to = File.join(RAILS_ROOT, copy[:to], copy[:filename])
     unless File.exists?(copy_to)
 	    FileUtils::copy_file copy_from, copy_to
