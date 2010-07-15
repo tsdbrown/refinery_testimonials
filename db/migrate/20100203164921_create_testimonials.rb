@@ -16,7 +16,7 @@ class CreateTestimonials < ActiveRecord::Migration
     add_index :testimonials, :id
 
     User.find(:all).each do |user|
-      user.plugins.create(:title => "Testimonials", :position => (user.plugins.maximum(:position) || -1) +1)
+      user.plugins.create(:name => "Testimonials", :position => (user.plugins.maximum(:position) || -1) +1)
     end
 
     page = Page.create(
@@ -32,7 +32,7 @@ class CreateTestimonials < ActiveRecord::Migration
   end
 
   def self.down
-    UserPlugin.destroy_all({:title => "Testimonials"})
+    UserPlugin.destroy_all({:name => "Testimonials"})
 
     Page.find_all_by_link_url("/testimonials").each do |page|
       page.link_url, page.menu_match = nil
